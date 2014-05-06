@@ -13,36 +13,19 @@
 <body>
 
     <style>
+        *{
+            font-size: 65px;
+        }
+
         .CodeMirror {
             border: 1px solid black;
             margin:5px;
+            height: 300px;
         }
     </style>
 
 
-
-    <div>hallo</div>
-    <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control" placeholder="Username">
-    </div>
-
-
-    <!-- Single button -->
-    <div class="btn-group">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-            Action <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
-
-<div>
+<div style="width:50%;">
     <textarea id="code" name="PAGE_CONTENT"></textarea>
 </div>
 
@@ -54,8 +37,7 @@
     $(function(){
 
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-            height: "150px",
-            width: "200px",
+            height: "250px",
             mode: "javascript",
             lineNumbers: true
         });
