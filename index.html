@@ -12,29 +12,66 @@
 </head>
 <body>
 
-    <style>
-        *{
-            font-size: 65px;
-        }
+<style>
+    * {
+        font-size: 65px;
+        font-family: "Calibri";
+        color:darkslategray;
+    }
 
-        .CodeMirror {
-            border: 1px solid black;
-            margin:5px;
-            height: 300px;
-        }
-    </style>
+    .CodeMirror {
+        border: 1px solid black;
+        margin: 5px;
+        height: 300px;
+    }
+
+    .presentationPage {
+        background-color: #f5f5f5;
+        padding: 20px;
+        margin-bottom: -41px;
+    }
+
+</style>
 
 
-<div style="width:50%;">
-    <textarea id="code" name="PAGE_CONTENT"></textarea>
+<div class="presentationPage">
+
+
+    Hallo 1
+
 </div>
 
+
+<div class="presentationPage">
+
+    <div style="width:50%;">
+        <textarea id="code" name="PAGE_CONTENT"></textarea>
+    </div>
+    <button type="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-play"></span>
+    </button>
+
+</div>
+
+
+<div class="presentationPage">
+
+
+    Hallo
+
+</div>
+
+<div class="presentationPage">
+
+    Welt
+
+</div>
 
 
 </body>
 <script>
 
-    $(function(){
+    $(function () {
 
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
             height: "250px",
@@ -43,7 +80,37 @@
         });
 
         var pending;
-        editor.on("change", function() {
+        editor.on("change", function () {
+
+        });
+
+
+        $('.presentationPage').height((parseInt($(window).height(), 10) - 40));
+
+        var TOTAL = $('.presentationPage').each(function (i, e) {
+            var current = $(e);
+            if (i > 0) current.hide();
+            else current.addClass('active');
+            current.addClass("page" + i);
+        }).length;
+
+        var INDEX = 0;
+        $( window ).keypress(function(e) {
+            if (e.keyCode === 39){
+                // RIGHT
+                INDEX +=1;
+                if (INDEX < (TOTAL-1) ){
+                    $(".presentationPage.active").hide().removeClass("active");
+                    $(".presentationPage.page"+INDEX).show().addClass("active");
+                }
+            }else if (e.keyCode === 37){
+                // LEFT
+                INDEX -= 1;
+                if (INDEX >= 0){
+                    $(".presentationPage.active").hide().removeClass("active");
+                    $(".presentationPage.page"+INDEX).show().addClass("active");
+                }
+            }
 
         });
 
