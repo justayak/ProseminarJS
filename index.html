@@ -92,23 +92,28 @@
             if (i > 0) current.hide();
             else current.addClass('active');
             current.addClass("page" + i);
+            current.attr('data-id',i);
         }).length;
 
         var INDEX = 0;
         $( window ).keypress(function(e) {
             if (e.keyCode === 39){
                 // RIGHT
-                INDEX +=1;
-                if (INDEX < (TOTAL-1) ){
+                if (INDEX < (TOTAL -1)){
+                    INDEX +=1;
+                    console.log('hide: ' + $(".presentationPage.active").attr('data-id'));
                     $(".presentationPage.active").hide().removeClass("active");
                     $(".presentationPage.page"+INDEX).show().addClass("active");
+                    console.log('show: ' + INDEX);
                 }
             }else if (e.keyCode === 37){
                 // LEFT
-                INDEX -= 1;
-                if (INDEX >= 0){
+                if (INDEX > 0){
+                    INDEX -= 1;
+                    console.log('hide: ' + $(".presentationPage.active").attr('data-id'));
                     $(".presentationPage.active").hide().removeClass("active");
                     $(".presentationPage.page"+INDEX).show().addClass("active");
+                    console.log('show: ' + INDEX);
                 }
             }
 
