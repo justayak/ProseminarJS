@@ -14,7 +14,7 @@
 
 <style>
     * {
-        font-size: 65px;
+        font-size: 45px;
         font-family: "Calibri";
         color:darkslategray;
     }
@@ -84,7 +84,6 @@
 
         });
 
-
         $('.presentationPage').height((parseInt($(window).height(), 10) - 40));
 
         var TOTAL = $('.presentationPage').each(function (i, e) {
@@ -93,11 +92,13 @@
             else current.addClass('active');
             current.addClass("page" + i);
             current.attr('data-id',i);
+            console.log("..." + i );
         }).length;
 
         var INDEX = 0;
-        $( window ).keypress(function(e) {
-            if (e.keyCode === 39){
+        $( window ).on('keypress',function(e) {
+            console.log(e.keyCode);
+            if (e.keyCode === 39 || e.keyCode === 54){
                 // RIGHT
                 if (INDEX < (TOTAL -1)){
                     INDEX +=1;
@@ -106,7 +107,7 @@
                     $(".presentationPage.page"+INDEX).show().addClass("active");
                     console.log('show: ' + INDEX);
                 }
-            }else if (e.keyCode === 37){
+            }else if (e.keyCode === 37 || e.keyCode === 52){
                 // LEFT
                 if (INDEX > 0){
                     INDEX -= 1;
