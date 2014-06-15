@@ -22,6 +22,19 @@
         color:darkslategray;
     }
 
+    h1 {
+        font-size: 65px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 55px;
+    }
+
+    h4 {
+        text-align: center;
+    }
+
     .CodeMirror {
         border: 1px solid black;
         margin: 5px;
@@ -93,12 +106,21 @@
         });*/
 
         var einleitung = new Page("pages/einleitung.html");
+        var inhalt = new Page("pages/inhalt.html", {step:1});
+        var inhalt1 = new Page("pages/inhalt.html", {step:2});
+        var inhalt2 = new Page("pages/inhalt.html", {step:3});
+        var inhalt3 = new Page("pages/inhalt.html", {step:4});
+        var inhalt4 = new Page("pages/inhalt.html", {step:5});
 
 
         PageLoader.add(einleitung);
+        PageLoader.add(inhalt);
+        PageLoader.add(inhalt1);
+        PageLoader.add(inhalt2);
+        PageLoader.add(inhalt3);
+        PageLoader.add(inhalt4);
+
         PageLoader.load(activate);
-
-
 
     });
 
