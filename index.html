@@ -44,10 +44,25 @@
 
     .presentationPage {
         background-color: #f5f5f5;
-        padding-top: 80px;
+        padding-top: 40px;
         padding-left: 80px;
         padding-right: 80px;
         margin-bottom: -41px;
+    }
+
+    .bulletPoint{
+        -moz-border-radius: 400px;
+        -webkit-border-radius: 400px;
+        border-radius: 400px;
+        float:left;
+        width:40px;
+        height:40px;
+        font-size:28px;
+        text-align: center;
+        margin-top:12px;
+        margin-right: 20px;
+        background-color:darkslategray;
+        color:white;
     }
 
 </style>
@@ -107,19 +122,26 @@
         });*/
 
         var einleitung = new Page("pages/einleitung.html");
-        var inhalt = new Page("pages/inhalt.html", {step:1});
-        var inhalt1 = new Page("pages/inhalt.html", {step:2});
-        var inhalt2 = new Page("pages/inhalt.html", {step:3});
-        var inhalt3 = new Page("pages/inhalt.html", {step:4});
-        var inhalt4 = new Page("pages/inhalt.html", {step:5});
+        var inhalt = new Page("pages/inhalt.html", {history:false, use:false, concepts:false, bewertung:false, future:false });
+        var inhalt0 = new Page("pages/inhalt.html", {history:true, use:false, concepts:false, bewertung:false, future:false });
+        var inhalt1 = new Page("pages/inhalt.html", {history:true, use:true, concepts:false, bewertung:false, future:false });
+        var inhalt2 = new Page("pages/inhalt.html", {history:true, use:true, concepts:true, bewertung:false, future:false });
+        var inhalt3 = new Page("pages/inhalt.html", {history:true, use:true, concepts:true, bewertung:true, future:false });
+        var inhalt4 = new Page("pages/inhalt.html", {history:true, use:true, concepts:true, bewertung:true, future:true });
 
+        var whatIs = new Page("pages/whatIs.html");
+        var history = new Page("pages/history.html");
 
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
+        PageLoader.add(inhalt0);
         PageLoader.add(inhalt1);
         PageLoader.add(inhalt2);
         PageLoader.add(inhalt3);
         PageLoader.add(inhalt4);
+
+        PageLoader.add(whatIs);
+        PageLoader.add(history);
 
         PageLoader.load(activate);
 
@@ -127,7 +149,7 @@
 
 
     function activate(){
-        $('.presentationPage').height((parseInt($(window).height(), 10) - 80));
+        $('.presentationPage').height((parseInt($(window).height(), 10) - 40));
         $('#presentation').height($(window).height - 40);
 
         var TOTAL = $('.presentationPage').each(function (i, e) {
