@@ -28,6 +28,10 @@
         text-align: center;
     }
 
+    .indent{
+        padding-left: 100px;
+    }
+
     h2 {
         font-size: 55px;
     }
@@ -63,6 +67,9 @@
         margin-right: 20px;
         background-color:darkslategray;
         color:white;
+    }
+    .impl img{
+        margin:20px;
     }
 
 </style>
@@ -129,8 +136,20 @@
         var inhalt3 = new Page("pages/inhalt.html", {history:true, use:true, concepts:true, bewertung:true, future:false });
         var inhalt4 = new Page("pages/inhalt.html", {history:true, use:true, concepts:true, bewertung:true, future:true });
 
-        var whatIs = new Page("pages/whatIs.html");
+        var whatIs = new Page("pages/whatIs.html",
+                {notjava:false,script:false,multi:false});
+        var whatIs0 = new Page('pages/whatIs.html',
+                {notjava:true,script:false,multi:false});
+        var whatIs1 = new Page('pages/whatIs.html',
+                {notjava:true,script:true,multi:false});
+        var whatIs2 = new Page('pages/whatIs.html',
+                {notjava:true,script:true,multi:true});
+
+        var usage = new Page("pages/usage.html");
+
         var history = new Page("pages/history.html");
+
+        var impl = new Page("pages/impl.html");
 
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
@@ -141,7 +160,15 @@
         PageLoader.add(inhalt4);
 
         PageLoader.add(whatIs);
+        PageLoader.add(whatIs0);
+        PageLoader.add(whatIs1);
+        PageLoader.add(whatIs2);
+
         PageLoader.add(history);
+
+        PageLoader.add(usage);
+
+        PageLoader.add(impl);
 
         PageLoader.load(activate);
 
