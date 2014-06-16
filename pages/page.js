@@ -2,9 +2,10 @@
  * Created by Julian on 14.06.2014.
  */
 (function(){
-    var Page = window.Page = function(url, data){
+    var Page = window.Page = function(url, data, functionName){
         if (typeof url !== 'undefined') this.url = url;
         if (typeof data !== 'undefined') this.data = data;
+        this.functionName = functionName ? functionName : null;
     };
 
     Page.store = {};
@@ -36,7 +37,9 @@
 
 
     Page.prototype.render = function(){
-        return '<div class="presentationPage">' + Mustache.render(this.template, this.data) + '</div>';
+        return '<div class="presentationPage" ' +
+            ((this.functionName !== null) ? 'data-fun="' + this.functionName + '"': '') +
+            ' >' + Mustache.render(this.template, this.data) + '</div>';
     }
 
 })();

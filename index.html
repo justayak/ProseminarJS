@@ -43,7 +43,12 @@
     .CodeMirror {
         border: 1px solid black;
         margin: 5px;
-        height: 300px;
+        font-size: 30px !important;
+        height: 450px;
+    }
+
+    .CodeMirror span,.CodeMirror div{
+        font-size: 30px !important;
     }
 
     .presentationPage {
@@ -151,6 +156,13 @@
 
         var impl = new Page("pages/impl.html");
 
+        var theory = new Page('pages/conceptsTheory.html', {},"loadConcepts");
+
+        var concept = new Page('pages/concepts.html',
+                {head:"Konzepte"});
+
+
+
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
         PageLoader.add(inhalt0);
@@ -168,7 +180,11 @@
 
         PageLoader.add(usage);
 
+        PageLoader.add(theory);
+
         PageLoader.add(impl);
+
+        PageLoader.add(concept);
 
         PageLoader.load(activate);
 
@@ -198,6 +214,10 @@
                     console.log('hide: ' + $(".presentationPage.active").attr('data-id'));
                     $(".presentationPage.active").hide().removeClass("active");
                     $(".presentationPage.page"+INDEX).show().addClass("active");
+                    var fun = $(".presentationPage.page"+INDEX).attr("data-fun");
+                    if (fun){
+                        Page[fun]();
+                    }
                     console.log('show: ' + INDEX);
                 }
             }else if (e.keyCode === 37 || e.keyCode === 52){
@@ -207,6 +227,10 @@
                     console.log('hide: ' + $(".presentationPage.active").attr('data-id'));
                     $(".presentationPage.active").hide().removeClass("active");
                     $(".presentationPage.page"+INDEX).show().addClass("active");
+                    var fun = $(".presentationPage.page"+INDEX).attr("data-fun");
+                    if (fun){
+                        Page[fun]();
+                    }
                     console.log('show: ' + INDEX);
                 }
             }

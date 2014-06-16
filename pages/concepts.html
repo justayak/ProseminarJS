@@ -1,0 +1,17 @@
+<h2>{{head}}</h2>
+
+        <div>
+            <textarea id="{{head}}" name="PAGE_CONTENT"></textarea>
+        </div>
+
+<script type="text/javascript">
+    $(function(){
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("{{head}}"), {
+            height: "450px",
+            mode: "javascript",
+            lineNumbers: true
+        });
+
+    });
+</script>
