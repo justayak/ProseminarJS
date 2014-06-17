@@ -154,6 +154,8 @@
 
         var history = new Page("pages/history.html");
 
+        var htmlExample = new Page("pages/htmlexample.html", {}, "loadHtmtexample");
+
         var impl = new Page("pages/impl.html");
 
         var theory = new Page('pages/conceptsTheory.html', {},"loadConcepts");
@@ -177,6 +179,8 @@
         PageLoader.add(whatIs2);
 
         PageLoader.add(history);
+
+        PageLoader.add(htmlExample);
 
         PageLoader.add(usage);
 
