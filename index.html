@@ -216,6 +216,9 @@
                 {head:"Prototyping", desc:"function, Object.create|ctor{parent.call(this,params)} class.prototype=Object.create(parent.prototype)"});
         var prototyping2 = new Page('pages/prototyping.html',{value:false});
 
+        var execContext = new Page('pages/execContext.html',{start:true});
+        var execContext0 = new Page('pages/execContext.html',{start:false,descr:true});
+
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
         PageLoader.add(inhalt0);
@@ -249,6 +252,9 @@
         PageLoader.add(prototyping0);
         PageLoader.add(prototyping1);
         PageLoader.add(prototyping2);
+
+        PageLoader.add(execContext);
+        PageLoader.add(execContext0);
 
         PageLoader.load(activate);
 
