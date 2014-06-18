@@ -217,7 +217,8 @@
         var prototyping2 = new Page('pages/prototyping.html',{value:false});
 
         var execContext = new Page('pages/execContext.html',{start:true});
-        var execContext0 = new Page('pages/execContext.html',{start:false,descr:true});
+        var execContext0 = new Page('pages/execContext.html',{start:false, estack:true});
+        var execContext1 = new Page('pages/execContext.html',{start:false,descr:true});
 
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
@@ -255,6 +256,7 @@
 
         PageLoader.add(execContext);
         PageLoader.add(execContext0);
+        PageLoader.add(execContext1);
 
         PageLoader.load(activate);
 

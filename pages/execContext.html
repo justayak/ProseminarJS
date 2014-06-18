@@ -1,7 +1,8 @@
 <h2>Execution Context</h2>
 {{#start}}
 <i class="highlight">Vereinfachung:</i><br>
-Umgebung / Kontext, in der der aktuelle Code evaluiert wird
+Kontrolle --> ECMAScript-Code --> EC<br>
+Umgebung / Kontext, in der der aktuelle Code evaluiert/ausgeführt wird! (VO)
 <div class="bullet">
     <div class="bulletPoint">1</div>
     Global
@@ -10,8 +11,17 @@ Umgebung / Kontext, in der der aktuelle Code evaluiert wird
     <div class="bulletPoint">2</div>
     Function
 </div>
+<div>
++ Nur Funktionen erzeugen einen neuen EC!
+</div>
 {{/start}}
-
+{{#estack}}
+<div>
+    <i class="highlight">Execution Context Stack<i><br>
+    JavaScript ist single-threaded!<br>
+    <img height="400px" src="res/ecstack.png"/>
+</div>
+{{/estack}}
 {{#descr}}
 <div class="outer">
     <div class="left">
