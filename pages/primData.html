@@ -1,0 +1,42 @@
+<h2>Primitive Datentypen</h2>
+
+        <div id="primData">
+
+            <div class="bullet" id="numberprimdata">
+                <div class="bulletPoint">1</div>
+                Numbers
+            </div>
+
+            <div class="bullet" id="boolprimdata">
+                <div class="bulletPoint">2</div>
+                Booleans
+            </div>
+
+            <div class="bullet" id="stringprimdata">
+                <div class="bulletPoint">3</div>
+                Strings
+            </div>
+
+            <div class="bullet" id="nullprimdata">
+                <div class="bulletPoint">4</div>
+                null
+            </div>
+
+            <div class="bullet" id="undefprimdata">
+                <div class="bulletPoint">5</div>
+                undefined
+            </div>
+
+        </div>
+
+<script>
+    Page.loadPrimData = function () {
+        $('#numberprimdata').hide().fadeIn(100);
+        $('#boolprimdata').hide().fadeIn(2000);
+        $('#stringprimdata').hide().fadeIn(3000);;
+        $('#nullprimdata').hide().fadeIn(4000);;
+        $('#undefprimdata').hide().fadeIn(5000);;
+
+
+    }
+</script>

@@ -1,0 +1,50 @@
+<h2>Prototyping und Vererbung</h2>
+<style>
+    #inheritance img{
+        width: 80px;
+    }
+
+    #inheritance .obj{
+        color:darkorange;
+        font-weight: bold;
+    }
+
+    #inheritance .cls{
+        color:darkblue;
+        font-weight: bold;
+    }
+
+</style>
+<div id="inheritance">
+    <h3>Objektorientierung in ...</h3>
+
+    <div class="outer">
+        <div class="left">
+            <h3>Klassenbasiert</h3>
+            <img src="res/java.png"/>
+            <img src="res/cpp.png"/>
+            <img src="res/cs.png"/>
+
+            {{#value}}
+            <div>
+                Zustand --> <i class="obj">Instanz</i> <br>
+                Methoden --> <i class="cls">Klasse</i>
+            </div>
+            {{/value}}
+
+        </div>
+        <div class="right">
+            <h3>JavaScript</h3>
+            <img src="res/js.png"/>
+
+            {{#value}}
+            <div>
+                Zustand --> <i class="obj">Objekt</i> <br>
+                Methoden --> <i class="obj">Objekt</i>
+            </div>
+            {{/value}}
+
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>

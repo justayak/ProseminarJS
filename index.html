@@ -36,6 +36,10 @@
         font-size: 55px;
     }
 
+    h3 {
+        font-size: 45px;
+    }
+
     h4 {
         text-align: center;
     }
@@ -47,12 +51,16 @@
     .CodeMirror {
         border: 1px solid black;
         margin: 5px;
-        font-size: 30px !important;
+        font-size: 35px !important;
+        height: 450px;
+    }
+
+    .CodeMirror.small{
         height: 450px;
     }
 
     .CodeMirror span,.CodeMirror div{
-        font-size: 30px !important;
+        font-size: 35px !important;
     }
 
     .presentationPage {
@@ -116,6 +124,32 @@
         font-size:60px;
     }
 
+    .outer{
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+    .left{
+        float:left;
+        width: 50%;
+        position: absolute;
+        height: 100%;
+    }
+
+    .right{
+        float:right;
+        width: 50%;
+        left:50%;
+        position: absolute;
+        height: 100%;
+    }
+
+    .highlight{
+        color:darkgray;
+        font-weight: bold;
+    }
+
 </style>
 
 <div id="presentation">
@@ -151,6 +185,8 @@
                 {notjava:true,script:true,multi:false});
         var whatIs2 = new Page('pages/whatIs.html',
                 {notjava:true,script:true,multi:true});
+        var whatIs3 = new Page('pages/whatIs.html',
+                {notjava:true,script:true,multi:true, deleg:true});
 
         var usage = new Page("pages/usage.html");
 
@@ -162,10 +198,23 @@
 
         var theory = new Page('pages/conceptsTheory.html', {},"loadConcepts");
 
+        var primData = new Page('pages/primData.html', {},"loadPrimData");
+
         var concept = new Page('pages/concepts.html',
-                {head:"Objekterzeugung"});
+                {head:"Grundlagen", desc:"numbers,functions,arrays,booleans"});
+
+        var concept0 = new Page('pages/concepts.html',
+                {head:"Objekterzeugung", desc:"object literal, ctor, Object.create"});
+
+        var concept1 = new Page('pages/concepts.html',
+                {head:"First_Class_Functions", desc:"arg,var,ret"});
 
 
+        var prototyping = new Page('pages/inheritance.html',{value:false});
+        var prototyping0 = new Page('pages/inheritance.html',{value:true});
+        var prototyping1 = new Page('pages/concepts.html',
+                {head:"Prototyping", desc:"function, Object.create|ctor{parent.call(this,params)} class.prototype=Object.create(parent.prototype)"});
+        var prototyping2 = new Page('pages/prototyping.html',{value:false});
 
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
@@ -179,6 +228,7 @@
         PageLoader.add(whatIs0);
         PageLoader.add(whatIs1);
         PageLoader.add(whatIs2);
+        PageLoader.add(whatIs3);
 
         PageLoader.add(history);
 
@@ -190,13 +240,35 @@
 
         PageLoader.add(impl);
 
+        PageLoader.add(primData);
         PageLoader.add(concept);
+        PageLoader.add(concept0);
+        PageLoader.add(concept1);
+
+        PageLoader.add(prototyping);
+        PageLoader.add(prototyping0);
+        PageLoader.add(prototyping1);
+        PageLoader.add(prototyping2);
 
         PageLoader.load(activate);
 
     });
 
     function log(result){
+        if (typeof result === 'undefined') result = '<i style="color: lightcoral">undefined</i>';
+        if (result === null) result = '<i style="color: lightblue">null</i>';
+
+        if( Object.prototype.toString.call( result ) === '[object Array]' ) {
+            var text = "";
+            for(var i = 0; i < result.length; i++){
+                var current = result[i];
+                if (typeof current === 'undefined') current = '<i style="color: lightcoral">undefined</i>';
+                if (current === null) current = '<i style="color: lightblue">null</i>';
+                text += current + "<br>";
+            }
+            result = text;
+        }
+
         var log = $("#log");
         log.show();
         var text = $(".text", log);
@@ -220,6 +292,9 @@
         var INDEX = 0;
         $( window ).on('keypress',function(e) {
             console.log(e.keyCode);
+            if (e.keyCode === 99){
+                $("#log").hide();
+            }
             if (e.keyCode === 39 || e.keyCode === 54){
                 // RIGHT
                 if (INDEX < (TOTAL -1)){

@@ -1,4 +1,5 @@
-<h2>Kenzept / {{head}}</h2>
+<h2>Konzept / {{head}}</h2>
+        <div style="font-size: 12px;">{{desc}}</div>
         <div id="{{head}}element">
             <textarea id="{{head}}" name="PAGE_CONTENT"></textarea>
         </div>
@@ -11,6 +12,8 @@
 
     function {{head}}_click(){
         var text = {{head}}editor.getValue();
+        var res = eval(text);
+    console.log(res);
     if (text.length === 0) return;
     console.log("start:" + text);
     var head = $("#{{head}}element");
@@ -24,7 +27,7 @@
     }
 
     $(function(){
-
+        console.log("concept {{head}} ready");
         {{head}}editor = CodeMirror.fromTextArea(document.getElementById("{{head}}"), {
             height: "450px",
             mode: "javascript",

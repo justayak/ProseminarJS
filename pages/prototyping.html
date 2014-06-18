@@ -1,0 +1,36 @@
+<h2>Prototyping und Vererbung</h2>
+<div>
+    Object -> <i class="highlight">prototype</i>
+</div>
+<div>
+    <div id="protoCodeCage">
+        <textarea id="protoCode" name="PAGE_CONTENT">var test = {
+        name : "Timo",
+        __proto__ : {
+                name : "TimosParent",
+                age : "alt",
+                __proto__ : {
+                        name : "TimosGrandParent",
+                        legs : 2,
+                        __proto__ : Object.prototype
+                }
+        }
+}
+        </textarea>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        console.log("code laden für Prototyping..");
+        var editor = CodeMirror.fromTextArea(document.getElementById("protoCode"), {
+            height: '300px',
+            mode: 'javascript',
+            lineNumbers: true
+        });
+
+        var cage = $("#protoCodeCage");
+        $(".CodeMirror",cage).addClass("small");
+
+    });
+</script>
