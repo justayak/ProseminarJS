@@ -190,8 +190,14 @@
 
         var usage = new Page("pages/usage.html");
 
-        var history = new Page("pages/history.html");
-
+        var history = new Page("pages/history.html", {livescript:false, manipulieren:false, koop:false, javascr:false} );
+		var history0 = new Page("pages/history.html", {livescript:true, manipulieren:false, koop:false, javascr:false});
+		var history1 = new Page("pages/history.html", {livescript:true, manipulieren:true, koop:false, javascr:false} );
+		var history2 = new Page("pages/history.html", {livescript:true, manipulieren:true, koop:true, javascr:false} );
+		var history3 = new Page("pages/history.html", {livescript:true, manipulieren:true, koop:true, javascr:true} );	
+		
+		var htory = new Page("pages/history2.html", {zeit:true});	
+		
         var htmlExample = new Page("pages/htmlexample.html", {}, "loadHtmtexample");
 
         var impl = new Page("pages/impl.html");
@@ -232,16 +238,22 @@
         PageLoader.add(whatIs1);
         PageLoader.add(whatIs2);
         PageLoader.add(whatIs3);
+		
+		PageLoader.add(impl);
 
         PageLoader.add(history);
+		PageLoader.add(history0);
+		PageLoader.add(history1);
+		PageLoader.add(history2);
+		PageLoader.add(history3);
+		
+		PageLoader.add(htory);
 
         PageLoader.add(htmlExample);
 
         PageLoader.add(usage);
 
         PageLoader.add(theory);
-
-        PageLoader.add(impl);
 
         PageLoader.add(primData);
         PageLoader.add(concept);
