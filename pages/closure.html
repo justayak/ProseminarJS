@@ -1,0 +1,23 @@
+<h2>Closures</h2>
+        <div id="closSentence1">
+<i class="highlight">Funktion</i>, die sich den
+<i class="highlight">Scope</i> zur Zeit ihrer
+Erstellung merkt
+        </div>
+<br><br>
+<div id="closSentence2">
+Variablen bleiben <i class="highlight">gültigt</i>, selbst
+wenn der Execution Context seine Gültigkeit verliert
+</div>
+<script>
+    Page.loadClosures = function(){
+        $("#closSentence2").hide();
+        setTimeout(function(){
+            $("#closSentence2").fadeIn(1000);
+        },5000);
+        $("#closSentence1").hide();
+        setTimeout(function(){
+            $("#closSentence1").fadeIn(1000);
+        },5);
+    }
+</script>

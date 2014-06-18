@@ -30,7 +30,9 @@
         console.log("concept {{head}} ready");
         {{head}}editor = CodeMirror.fromTextArea(document.getElementById("{{head}}"), {
             height: "450px",
+            tabSize: 6,
             mode: "javascript",
+            theme: "monokai",
             lineNumbers: true
         });
 

@@ -85,6 +85,11 @@
         background-color:darkslategray;
         color:white;
     }
+
+    .bulletPoint.small{
+        font-size:30px !important;
+    }
+
     .impl img{
         margin:20px;
     }
@@ -224,7 +229,26 @@
 
         var execContext = new Page('pages/execContext.html',{start:true});
         var execContext0 = new Page('pages/execContext.html',{start:false, estack:true});
-        var execContext1 = new Page('pages/execContext.html',{start:false,descr:true});
+        var execContextNope = new Page('pages/execContext.html',{start:false,descr:true});
+        var execContext1 = new Page('pages/concepts.html',
+            {head:"Execution_Context", desc:"global func func"});
+
+        var closure = new Page("pages/closure.html",{},'loadClosures');
+
+        var closure1 = new Page('pages/concepts.html',
+                {head:"Closures", desc:"function, NICHT final (Java)"});
+
+        var bewertung = new Page('pages/bewertung.html', {});
+        var bewertung0 = new Page('pages/bewertung.html', {simple:true});
+        var bewertung1 = new Page('pages/bewertung.html', {simple:true, history:true});
+        var bewertung2 = new Page('pages/bewertung.html', {simple:true, history:true, distr:true});
+
+        var ausblick = new Page('pages/ausblick.html',{});
+        var ausblick0 = new Page('pages/ausblick.html',{erwe:true});
+        var ausblick1 = new Page('pages/ausblick.html',{erwe:true, perf:true});
+        var ausblick2 = new Page('pages/ausblick.html',{erwe:true, perf:true, html5:true});
+
+        var end = new Page('pages/fin.html',{});
 
         PageLoader.add(einleitung);
         PageLoader.add(inhalt);
@@ -269,6 +293,21 @@
         PageLoader.add(execContext);
         PageLoader.add(execContext0);
         PageLoader.add(execContext1);
+
+        PageLoader.add(closure);
+        PageLoader.add(closure1);
+
+        PageLoader.add(bewertung);
+        PageLoader.add(bewertung0);
+        PageLoader.add(bewertung1);
+        PageLoader.add(bewertung2);
+
+        PageLoader.add(ausblick);
+        PageLoader.add(ausblick0);
+        PageLoader.add(ausblick1);
+        PageLoader.add(ausblick2);
+
+        PageLoader.add(end);
 
         PageLoader.load(activate);
 
