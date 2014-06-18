@@ -40,6 +40,10 @@
         text-align: center;
     }
 
+    body {
+        overflow:hidden;
+    }
+
     .CodeMirror {
         border: 1px solid black;
         margin: 5px;
@@ -77,61 +81,59 @@
         margin:20px;
     }
 
+    .button{
+        margin:10px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+        background-color: darkslategray;
+        color:#ffffff;
+        text-align: center;
+        width: 300px;
+    }
+    .button:hover{
+        background-color: darkslategray;
+        color:#00ff00;
+        cursor: pointer;
+    }
+
+    #log{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0;
+        opacity: 0.8;
+        z-index: 999999;
+        background-color: black;
+        color:white;
+        opacity: 0.9;
+    }
+
+    #log .text{
+        padding:150px;
+        color:white;
+        font-size:60px;
+    }
+
 </style>
 
 <div id="presentation">
 
 </div>
+<div id="log">
+    <div class="text">
 
-<!--div class="presentationPage">
-
-
-    Hallo 1
-
-</div>
-
-
-<div class="presentationPage">
-
-    <div style="width:50%;">
-        <textarea id="code" name="PAGE_CONTENT"></textarea>
     </div>
-    <button type="button" class="btn btn-default">
-        <span class="glyphicon glyphicon-play"></span>
-    </button>
-
+    <div class="close button" onclick="$('#log').hide();">
+        Schließen
+    </div>
 </div>
-
-
-<div class="presentationPage">
-
-
-    Hallo
-
-</div>
-
-<div class="presentationPage">
-
-    Welt
-
-</div-->
-
 
 </body>
 <script>
 
     $(function () {
-
-        /*var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-            height: "250px",
-            mode: "javascript",
-            lineNumbers: true
-        });
-
-        var pending;
-        editor.on("change", function () {
-
-        });*/
 
         var einleitung = new Page("pages/einleitung.html");
         var inhalt = new Page("pages/inhalt.html", {history:false, use:false, concepts:false, bewertung:false, future:false });
@@ -161,7 +163,7 @@
         var theory = new Page('pages/conceptsTheory.html', {},"loadConcepts");
 
         var concept = new Page('pages/concepts.html',
-                {head:"Konzepte"});
+                {head:"Objekterzeugung"});
 
 
 
@@ -194,8 +196,15 @@
 
     });
 
+    function log(result){
+        var log = $("#log");
+        log.show();
+        var text = $(".text", log);
+        text.html(result);
+    }
 
     function activate(){
+        $("#log").hide();
         $('.presentationPage').height((parseInt($(window).height(), 10) - 40));
         $('#presentation').height($(window).height - 40);
 

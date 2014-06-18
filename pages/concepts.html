@@ -1,13 +1,31 @@
-<h2>{{head}}</h2>
-
-        <div>
+<h2>Kenzept / {{head}}</h2>
+        <div id="{{head}}element">
             <textarea id="{{head}}" name="PAGE_CONTENT"></textarea>
+        </div>
+        <div onclick="{{head}}_click()"class="button">
+            Ausführen
         </div>
 
 <script type="text/javascript">
+
+
+    function {{head}}_click(){
+        var text = {{head}}editor.getValue();
+    if (text.length === 0) return;
+    console.log("start:" + text);
+    var head = $("#{{head}}element");
+
+    var script = document.createElement( 'script' );
+    script.type = 'text/javascript';
+    script.text = text;
+
+    head.append(script);
+
+    }
+
     $(function(){
 
-        var editor = CodeMirror.fromTextArea(document.getElementById("{{head}}"), {
+        {{head}}editor = CodeMirror.fromTextArea(document.getElementById("{{head}}"), {
             height: "450px",
             mode: "javascript",
             lineNumbers: true
