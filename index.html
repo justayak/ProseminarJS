@@ -193,7 +193,8 @@
         var whatIs3 = new Page('pages/whatIs.html',
                 {notjava:true,script:true,multi:true, deleg:true});
 
-        var usage = new Page("pages/usage.html");
+        var usage = new Page("pages/usage.html", {}, "loadall");
+
 
         var history = new Page("pages/history.html", {livescript:false, manipulieren:false, koop:false, javascr:false} );
 		var history0 = new Page("pages/history.html", {livescript:true, manipulieren:false, koop:false, javascr:false});
@@ -277,7 +278,7 @@
         PageLoader.add(htmlExample);
 
         PageLoader.add(usage);
-
+		
         PageLoader.add(theory);
 
         PageLoader.add(primData);
